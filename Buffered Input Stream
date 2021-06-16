@@ -1,0 +1,27 @@
+package com.iostream;
+
+import java.io.*;
+
+public class Main {
+
+    public static void main(String[] args) throws Exception{
+        try {
+            FileInputStream fis=new FileInputStream("D:/Java/Test.txt");
+            BufferedInputStream bis= new BufferedInputStream(fis);
+            byte b[]= new byte[fis.available()];
+            fis.read(b);
+            String str =new String(b);
+            System.out.println(str);
+            fis.close();
+            
+            
+            /*System.out.println("File is mark supported : "+fis.markSupported());//false
+            System.out.println("Buffer is mark supported : "+bis.markSupported());//true*/
+            
+            
+            
+        }catch (Exception e){
+            System.out.println(e);
+        }
+    }
+}
