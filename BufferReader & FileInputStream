@@ -8,6 +8,10 @@ public class Main {
         try {
             FileInputStream fis=new FileInputStream("D:/Java/Test.txt");
             BufferedInputStream bis= new BufferedInputStream(fis);
+            
+            /*FileReader fis=new FileReader("D:/Java/Test.txt");
+            BufferedReader bis= new BufferedReader(fis);*/ BufferdReader reads characters in unicodes if present in the file,else both are similar.  
+            
             System.out.print((char) bis.read());//Reads the first letter from the file Test
             System.out.print((char) bis.read());//Reads the second letter from the file Test
             System.out.print((char) bis.read());//Reads the Third letter from the file Test
@@ -18,6 +22,10 @@ public class Main {
             System.out.print((char) bis.read());//Reads the fourth letter from the file Test
             System.out.print((char) bis.read());//Reads the Fifth letter from the file Test
             //Output = Learnrn use this is read particular data and again go back to initial position 
+            
+            System.out.print(bis.readLine());// Reads the remaining string present in file as string.
+            //Output = Learnrn Java Programming.
+
         }catch (Exception e){
             System.out.println(e);
         }
