@@ -1,0 +1,35 @@
+package com.iostream;
+
+import java.io.*;
+
+public class Main {
+
+    public static void main(String[] args) throws Exception{
+        RandomAccessFile randomAccessFile=new RandomAccessFile("D:/Java/Test.txt","rw");
+        //File = Learn Java Programming.
+        System.out.println((char)randomAccessFile.read()); //After printing,Pointer automatically points to next vale 
+        System.out.println((char)randomAccessFile.read());
+        System.out.println((char)randomAccessFile.read());
+
+
+        randomAccessFile.write('R');//Pointer Continues, and not overwrite from first . This is random access file.
+        //Output = LeaRn Written R with same Pointer.
+        
+        System.out.println((char)randomAccessFile.read());
+        
+        randomAccessFile.skipBytes(3);//skip n bytes i.e, Pointer moved to +3Position.
+        System.out.println((char)randomAccessFile.read());
+        
+        randomAccessFile.seek(3);//go to position at 3
+        
+        System.out.println((char)randomAccessFile.read());//prints the Position 3 value
+        
+        System.out.println(randomAccessFile.getFilePointer());//prints the current pointer Position.
+        
+        randomAccessFile.seek(randomAccessFile.getFilePointer()+2);//Moving forward from current postion
+        
+        System.out.println((char)randomAccessFile.read());
+
+
+    }
+}
