@@ -1,0 +1,36 @@
+package com.iostream;
+
+import java.io.*;
+
+public class Main {
+
+    public static void main(String[] args) throws Exception{
+        try {
+            FileInputStream fis=new FileInputStream("D:/Java/Test.txt");
+            FileOutputStream fos=new FileOutputStream("D:/Java/Test1.txt");
+            int b;
+            while((b=fis.read())!=-1){
+                if (b>=65&&b<=90)
+                    fos.write(b+32);
+                fos.write(b);
+            }
+            fis.close();
+            fos.close();
+
+            /*byte b[]=new byte[fis.available()];
+            fis.read(b);
+            for (byte x:b) {
+                if (x>=65&&x<=90){
+                    fos.write(x+32);
+                }else
+                    fos.write(x);
+            }
+            fis.close();
+            fos.close();*/
+
+        }catch (Exception e){
+            System.out.println(e);
+        }
+    }
+}
+
