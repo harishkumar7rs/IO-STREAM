@@ -1,0 +1,25 @@
+package com.iostream;
+
+import java.io.*;
+
+public class Main {
+
+    public static void main(String[] args) throws Exception{
+        try {
+            FileInputStream fis=new FileInputStream("D:/Java/Test.txt");
+            BufferedInputStream bis= new BufferedInputStream(fis);
+            System.out.print((char) bis.read());//Reads the first letter from the file Test
+            System.out.print((char) bis.read());//Reads the second letter from the file Test
+            System.out.print((char) bis.read());//Reads the Third letter from the file Test
+            bis.mark(10);//In buffer Third letter is marked , and mark is valid upto 10 letters.
+            System.out.print((char) bis.read());//Reads the fourth letter from the file Test
+            System.out.print((char) bis.read());//Reads the Fifth letter from the file Test
+            bis.reset();//Resets the Buffer Mark and goes to fourth letter.
+            System.out.print((char) bis.read());//Reads the fourth letter from the file Test
+            System.out.print((char) bis.read());//Reads the Fifth letter from the file Test
+            //Output = Learnrn use this is read particular data and again go back to initial position 
+        }catch (Exception e){
+            System.out.println(e);
+        }
+    }
+}
