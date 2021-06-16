@@ -1,0 +1,28 @@
+package com.iostream;
+
+import java.io.*;
+
+public class Main {
+
+    public static void main(String[] args) throws Exception{
+        try {
+            ByteArrayOutputStream bos=new ByteArrayOutputStream(20);
+            bos.write('a');
+            bos.write('a');
+            bos.write('a');
+            bos.write('a');
+            
+            //Printing the Array 
+            /*byte b[]= bos.toByteArray();
+            for (byte x : b) {
+                System.out.print((char) x);
+            }*/
+            
+            //send to file text
+            bos.writeTo(new FileOutputStream("D:/Java/Test.txt"));
+            bos.close();
+        }catch (Exception e){
+            System.out.println(e);
+        }
+    }
+}
