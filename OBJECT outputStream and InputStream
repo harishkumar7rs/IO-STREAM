@@ -1,0 +1,55 @@
+
+package com.File;
+
+import java.io.*;
+
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+        FileInputStream fileinputStream=new FileInputStream("D:Java/StudentOBJ.txt");
+        ObjectInputStream objectInputStream=new ObjectInputStream(fileinputStream);
+
+
+        Student student=(Student)objectInputStream.readObject();
+        System.out.println(student);
+
+        fileinputStream.close();
+        objectInputStream.close();
+
+    /*public static void main(String[] args) throws Exception {
+        FileOutputStream fileOutputStream=new FileOutputStream("D:Java/StudentOBJ.txt");
+        ObjectOutputStream objectOutputStream=new ObjectOutputStream(fileOutputStream);
+
+
+        Student student=new Student(1,"harish","ECE");
+        objectOutputStream.writeObject(student);
+
+        fileOutputStream.close();
+        objectOutputStream.close();*/
+
+    }
+}
+class Student implements Serializable{
+    private int rollno;
+    private String name;
+    private String dept;
+    public static int data=10;
+    public transient int t=0;
+    public  Student(){
+
+    }
+    public Student(int rollno,String name,String dept){
+        this.rollno=rollno;
+        this.name=name;
+        this.dept=dept;
+        this.data=100;
+        this.t=500;
+    }
+    public String toString(){
+        return "RollNo: " +rollno+"\n"+
+                "name: "+name+"\n"+
+                "Dept : "+dept;
+    }
+
+
+}
