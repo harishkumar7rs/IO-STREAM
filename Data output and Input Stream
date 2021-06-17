@@ -1,0 +1,63 @@
+//Writing in File using Data output Stream
+
+package com.File;
+
+import java.io.*;
+
+public class Main {
+
+    public static void main(String[] args)throws   Exception {
+        FileOutputStream fileOutputStream=new FileOutputStream("D:\\Java/StudentDOS.txt");
+        DataOutputStream dataOutputStream=new DataOutputStream(fileOutputStream);
+
+
+        Student student=new Student();
+        student.rollno=1;
+        student.name="Harish";
+        student.dept="ECE";
+
+        dataOutputStream.write(student.rollno);
+        dataOutputStream.writeUTF(student.name);//unicode Transformation
+        dataOutputStream.writeUTF(student.dept);
+        dataOutputStream.close();
+        fileOutputStream.close();
+
+        //Output : 䠆牡獩h䔃䕃  //as data outstream writes of it's data type, so it is a binary file, not a text file
+    }
+}
+class Student{
+    int rollno;
+    String name;
+    String dept;
+}
+
+
+//Reading a file using data input Stream
+package com.File;
+
+import java.io.*;
+
+public class Main {
+
+    public static void main(String[] args)throws   Exception {
+       FileInputStream fileInputStream=new FileInputStream("D:/Java/studentDOS");
+       DataInputStream dataInputStream=new DataInputStream(fileInputStream);
+
+       Student student=new Student();
+       student.rollno=dataInputStream.readInt();
+       student.name= dataInputStream.readUTF();
+       student.dept= dataInputStream.readUTF();
+
+        System.out.println(student.rollno);
+        System.out.println(student.name);
+        System.out.println(student.dept);
+
+
+    }
+}
+class Student{
+    int rollno;
+    String name;
+    String dept;
+}
+
